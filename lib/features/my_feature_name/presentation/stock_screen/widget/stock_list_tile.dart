@@ -9,7 +9,7 @@ class StockListTile extends StatelessWidget{
   Widget build(BuildContext context) {
     return Row(children: [
       Text(title),
-      const Expanded(child: SizedBox()),
+      //const Expanded(child: SizedBox()),
       Container(
         decoration: BoxDecoration(
           color: Colors.redAccent,
