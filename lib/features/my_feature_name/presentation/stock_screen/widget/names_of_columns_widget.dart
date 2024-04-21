@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class NamesOfColumnsWidget extends StatelessWidget{
+class NamesOfColumnsWidget extends StatelessWidget {
   const NamesOfColumnsWidget({super.key});
 
   @override
@@ -11,34 +11,36 @@ class NamesOfColumnsWidget extends StatelessWidget{
       color: Colors.grey,
       child: ListView.builder(
         itemCount: 1,
-        //itemBuilder: (BuildContext context, int index) {  },
+        physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (BuildContext context, int index) {
-           return SizedBox(
+          return SizedBox(
             width: double.infinity,
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(30, 10, 0, 10),
+              padding: const EdgeInsets.fromLTRB(30, 5, 0, 10),
               child: SingleChildScrollView(
+                physics: const NeverScrollableScrollPhysics(),
                 scrollDirection: Axis.horizontal,
-                child: Stack(children: [
-                  const Text('Corpus T4545BRUHHH'),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width-280)/3,
-                    child: const Align(
-                        alignment: Alignment.centerRight,
-                        child: Text('THK-13')),
-                  ),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width-280)/1.5,
-                    child: const Align(
-                        alignment: Alignment.centerRight,
-                        child: Text('yg65ng7')),
-                  ),
-
-                ],),
+                child: Stack(
+                  children: [
+                    const Text('Corpus T4545BRUHHH'),
+                    SizedBox(
+                      width: (MediaQuery.of(context).size.width - 280) / 3,
+                      child: const Align(
+                          alignment: Alignment.centerRight,
+                          child: Text('THK-13')),
+                    ),
+                    SizedBox(
+                      width: (MediaQuery.of(context).size.width - 280) / 1.5,
+                      child: const Align(
+                          alignment: Alignment.centerRight,
+                          child: Text('yg65ng7')),
+                    ),
+                  ],
+                ),
               ),
             ),
           );
-  },
+        },
       ),
     );
   }

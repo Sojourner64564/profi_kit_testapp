@@ -14,10 +14,12 @@ class ListTileProductWidget extends StatelessWidget{
           return SizedBox(
             width: double.infinity,
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(30, 10, 0, 10),
+              padding: const EdgeInsets.fromLTRB(30, 0, 0, 10),
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                child: Stack(children: [
+                child: Stack(
+                  alignment: AlignmentDirectional.centerStart,
+                  children: [
                   const Text('Название'),
                   SizedBox(
                     width: (MediaQuery.of(context).size.width-280)/3,
@@ -40,15 +42,17 @@ class ListTileProductWidget extends StatelessWidget{
                         }, icon: const Icon(Icons.add_a_photo_rounded),),
                     ),
                   ),
-                  // const Text('yg65ng7'),
-                  //IconButton(onPressed: (){}, icon: Icon(Icons.add_a_photo_rounded),),
                 ],),
               ),
             ),
           );
         },
         separatorBuilder: (BuildContext context, int index) {
-          return const Divider(thickness: 1, color: Colors.black26,);
+          return Container(
+            width: double.infinity,
+            height: 1,
+            color: Colors.black54,
+          );
         },
       ),
     );
