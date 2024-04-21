@@ -7,7 +7,10 @@ class StockListTile extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+      children: [
       Text(title),
       //const Expanded(child: SizedBox()),
       Container(
