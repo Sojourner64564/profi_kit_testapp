@@ -5,7 +5,7 @@ import 'package:profi_kit_testapp/features/my_feature_name/domain/entity/items_e
 extension ItemsToEntityExtension on ItemsModel{
   ItemsEntity toEntity(){
     return ItemsEntity(
-      results: results.map((e) => e.toEntity(e)).toList(),
+      results: result.map((e) => e.toEntity(e)).toList(),
       total: total,
     );
   }

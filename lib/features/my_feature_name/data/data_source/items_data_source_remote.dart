@@ -25,7 +25,7 @@ abstract class ItemsDataSourceRemote{
 }
 
 
-@injectable
+@lazySingleton
 class ItemsClientDataSourceRemote{
   ItemsDataSourceRemote client(){
     return _ItemsDataSourceRemote(Dio());

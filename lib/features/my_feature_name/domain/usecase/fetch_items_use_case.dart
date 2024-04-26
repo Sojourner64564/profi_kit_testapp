@@ -1,8 +1,10 @@
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 import 'package:profi_kit_testapp/core/failure/failure.dart';
 import 'package:profi_kit_testapp/features/my_feature_name/domain/entity/items_entity.dart';
 import 'package:profi_kit_testapp/features/my_feature_name/domain/repository/fetch_items_repository.dart';
 
+@injectable
 class FetchItemsUseCase implements FetchItemsRepository{
   final FetchItemsRepository fetchItemsRepository;
 

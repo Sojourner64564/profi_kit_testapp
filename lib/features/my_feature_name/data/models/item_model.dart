@@ -1,9 +1,10 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'item_model.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class ItemModel{
+class ItemModel extends Equatable{
   const ItemModel({
     this.id = '',
     this.name = '',
@@ -21,4 +22,7 @@ class ItemModel{
   factory ItemModel.fromJson(Map<String,dynamic> json) => _$ItemModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ItemModelToJson(this);
+
+  @override
+  List<Object?> get props => [id, name, description, measurementUnit, code];
 }

@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:profi_kit_testapp/core/failure/failure.dart';
-import 'package:profi_kit_testapp/core/network/network_info.dart';
 import 'package:profi_kit_testapp/features/my_feature_name/data/data_source/items_data_source_remote.dart';
 import 'package:profi_kit_testapp/features/my_feature_name/data/models/extension/extension_items_model_to_entety.dart';
 import 'package:profi_kit_testapp/features/my_feature_name/domain/entity/items_entity.dart';
@@ -11,14 +10,12 @@ import 'package:profi_kit_testapp/features/my_feature_name/domain/repository/fet
 
 @LazySingleton(as: FetchItemsRepository)
 class FetchItemsRepositoryImpl implements FetchItemsRepository{
-  final NetworkInfo networkInfo;
   final ItemsClientDataSourceRemote itemsClientDataSourceRemote;
 
-  FetchItemsRepositoryImpl(this.networkInfo, this.itemsClientDataSourceRemote);
+  FetchItemsRepositoryImpl(this.itemsClientDataSourceRemote);
 
   @override
   Future<Either<Failure, ItemsEntity>> fetchItems(String login, String password, int page, int pageSize) async{
-    if(! await networkInfo.isConnected)  return Left(ServerFailure());
       try{
         final accessTokenModel = await itemsClientDataSourceRemote.client().fetchAccessToken(jsonEncode({
           'login':login,

@@ -7,7 +7,6 @@ class NamesOfColumnsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 30,
-      width: double.infinity,
       color: Colors.grey,
       child: ListView.builder(
         itemCount: 1,
@@ -22,18 +21,18 @@ class NamesOfColumnsWidget extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Stack(
                   children: [
-                    const Text('Corpus T4545BRUHHH'),
+                    const Text('Название'),
                     SizedBox(
                       width: (MediaQuery.of(context).size.width - 280) / 3,
                       child: const Align(
                           alignment: Alignment.centerRight,
-                          child: Text('THK-13')),
+                          child: Text('Единица измерения')),
                     ),
                     SizedBox(
                       width: (MediaQuery.of(context).size.width - 280) / 1.5,
                       child: const Align(
                           alignment: Alignment.centerRight,
-                          child: Text('yg65ng7')),
+                          child: Text('Артикул/код')),
                     ),
                   ],
                 ),

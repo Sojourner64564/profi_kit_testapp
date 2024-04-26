@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:profi_kit_testapp/features/my_feature_name/domain/entity/items_entity.dart';
 
-class ListTileProductWidget extends StatelessWidget{
-  const ListTileProductWidget({super.key});
+class ListViewProductWidget extends StatelessWidget{
+  const ListViewProductWidget({super.key, required this.itemsEntity});
+  final ItemsEntity itemsEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +11,7 @@ class ListTileProductWidget extends StatelessWidget{
       height: double.infinity,
       width: double.infinity,
       child: ListView.separated(
-        itemCount: 23,
+        itemCount: itemsEntity.results.length,
         itemBuilder: (BuildContext context, int index) {
           return SizedBox(
             width: double.infinity,
@@ -20,18 +22,18 @@ class ListTileProductWidget extends StatelessWidget{
                 child: Stack(
                   alignment: AlignmentDirectional.centerStart,
                   children: [
-                  const Text('Название'),
+                    Text(itemsEntity.results[index].name), //название
                   SizedBox(
                     width: (MediaQuery.of(context).size.width-280)/3,
-                    child: const Align(
+                    child: Align(
                         alignment: Alignment.centerRight,
-                        child: Text('Единицы измерения')),
+                        child: Text(itemsEntity.results[index].measurementUnit)),//единица измерения
                   ),
                   SizedBox(
                     width: (MediaQuery.of(context).size.width-280)/1.5,
-                    child: const Align(
+                    child: Align(
                         alignment: Alignment.centerRight,
-                        child: Text('Артикул/код')),
+                        child: Text(itemsEntity.results[index].code)), //артикул код
                   ),
                   SizedBox(
                     width: (MediaQuery.of(context).size.width-280)/1.1,
