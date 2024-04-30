@@ -20,7 +20,7 @@ class _StockPageState extends State<StockPage> {
   final fetchItemsCubit = getIt<FetchItemsCubit>();
   @override
   void initState() {
-    fetchItemsCubit.fetchItems();
+    fetchItemsCubit.initFetchItems();
     super.initState();
   }
 
@@ -93,6 +93,7 @@ class _StockPageState extends State<StockPage> {
           height: double.infinity,
           width: MediaQuery.of(context).size.width-300,
           child: SingleChildScrollView(
+            physics: const NeverScrollableScrollPhysics(),
             child: Column(
               children: [
                 const Padding(

@@ -14,13 +14,15 @@ import 'package:injectable/injectable.dart' as _i2;
 import '../../features/my_feature_name/data/data_source/items_data_source_remote.dart'
     as _i3;
 import '../../features/my_feature_name/data/repository/fetch_items_repository_impl.dart'
-    as _i5;
-import '../../features/my_feature_name/domain/repository/fetch_items_repository.dart'
-    as _i4;
-import '../../features/my_feature_name/domain/usecase/fetch_items_use_case.dart'
     as _i6;
-import '../../features/my_feature_name/presentation/cubit/fetch_items_cubit/fetch_items_cubit.dart'
+import '../../features/my_feature_name/domain/repository/fetch_items_repository.dart'
+    as _i5;
+import '../../features/my_feature_name/domain/usecase/fetch_items_use_case.dart'
     as _i7;
+import '../../features/my_feature_name/presentation/cubit/fetch_items_cubit/fetch_items_cubit.dart'
+    as _i8;
+import '../../features/my_feature_name/presentation/cubit/update_pager_cubit/update_pager_cubit.dart'
+    as _i4;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 _i1.GetIt $initGetIt(
@@ -35,11 +37,12 @@ _i1.GetIt $initGetIt(
   );
   gh.lazySingleton<_i3.ItemsClientDataSourceRemote>(
       () => _i3.ItemsClientDataSourceRemote());
-  gh.lazySingleton<_i4.FetchItemsRepository>(() =>
-      _i5.FetchItemsRepositoryImpl(gh<_i3.ItemsClientDataSourceRemote>()));
-  gh.factory<_i6.FetchItemsUseCase>(
-      () => _i6.FetchItemsUseCase(gh<_i4.FetchItemsRepository>()));
-  gh.lazySingleton<_i7.FetchItemsCubit>(
-      () => _i7.FetchItemsCubit(gh<_i6.FetchItemsUseCase>()));
+  gh.lazySingleton<_i4.UpdatePagerCubit>(() => _i4.UpdatePagerCubit());
+  gh.lazySingleton<_i5.FetchItemsRepository>(() =>
+      _i6.FetchItemsRepositoryImpl(gh<_i3.ItemsClientDataSourceRemote>()));
+  gh.factory<_i7.FetchItemsUseCase>(
+      () => _i7.FetchItemsUseCase(gh<_i5.FetchItemsRepository>()));
+  gh.lazySingleton<_i8.FetchItemsCubit>(
+      () => _i8.FetchItemsCubit(gh<_i7.FetchItemsUseCase>()));
   return getIt;
 }

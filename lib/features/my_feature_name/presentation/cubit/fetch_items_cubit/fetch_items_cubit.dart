@@ -13,9 +13,9 @@ class FetchItemsCubit extends Cubit<FetchItemsState> {
   FetchItemsCubit(this.fetchItemsUseCase) : super(FetchItemsStateInitial());
   final FetchItemsUseCase fetchItemsUseCase;
   final updatePagerCubit = getIt<UpdatePagerCubit>();
+  int myPageSize = 10;
 
-
-  Future<void> fetchItems() async {
+  Future<void> initFetchItems() async {
     emit(FetchItemsStateLoading());
     final eitherFailureOrItemEntity = await fetchItemsUseCase.fetchItems(
         'admin', 'admin', 1, 10);
@@ -28,10 +28,49 @@ class FetchItemsCubit extends Cubit<FetchItemsState> {
       emit(FetchItemsStateEmpty());
       return;
     }
-    updatePagerCubit.updatePager(10, itemsEntity);
+    updatePagerCubit.itemsEntity = itemsEntity;
+    updatePagerCubit.pageSize = 10;
+    updatePagerCubit.initPager();
     emit(FetchItemsStateLoaded(itemsEntity));
-
   }
 
+  Future<void> fetchItemsWithDifPageSize(String pageSizeString) async {
+    final pageSize = int.parse(pageSizeString);
+    myPageSize = pageSize;
+    emit(FetchItemsStateLoading());
+    final eitherFailureOrItemEntity = await fetchItemsUseCase.fetchItems(
+        'admin', 'admin', 1, pageSize);
+    final itemsEntity = eitherFailureOrItemEntity.toOption().toNullable();
+    if (itemsEntity == null){
+      emit(FetchItemsStateError());
+      return;
+    }
+    if(itemsEntity.results.isEmpty){
+      emit(FetchItemsStateEmpty());
+      return;
+    }
+    updatePagerCubit.itemsEntity = itemsEntity;
+    updatePagerCubit.pageSize = pageSize;
+    updatePagerCubit.initPager();
+    emit(FetchItemsStateLoaded(itemsEntity));
+  }
 
+  Future<void> fetchItemsWithDifPage(int pageNumber) async {
+    emit(FetchItemsStateLoading());
+    final eitherFailureOrItemEntity = await fetchItemsUseCase.fetchItems(
+        'admin', 'admin', pageNumber, myPageSize);
+    final itemsEntity = eitherFailureOrItemEntity.toOption().toNullable();
+    if (itemsEntity == null){
+      emit(FetchItemsStateError());
+      return;
+    }
+    if(itemsEntity.results.isEmpty){
+      emit(FetchItemsStateEmpty());
+      return;
+    }
+    updatePagerCubit.itemsEntity = itemsEntity;
+    updatePagerCubit.pageSize = myPageSize;
+    //updatePagerCubit.initPager();
+    emit(FetchItemsStateLoaded(itemsEntity));
+  }
 }
