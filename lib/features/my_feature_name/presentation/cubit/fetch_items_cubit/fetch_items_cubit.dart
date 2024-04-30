@@ -70,7 +70,6 @@ class FetchItemsCubit extends Cubit<FetchItemsState> {
     }
     updatePagerCubit.itemsEntity = itemsEntity;
     updatePagerCubit.pageSize = myPageSize;
-    //updatePagerCubit.initPager();
     emit(FetchItemsStateLoaded(itemsEntity));
   }
 }
