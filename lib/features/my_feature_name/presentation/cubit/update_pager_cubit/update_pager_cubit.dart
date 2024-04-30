@@ -15,7 +15,6 @@ part 'update_pager_state.dart';
 class UpdatePagerCubit extends Cubit<UpdatePagerState> {
   UpdatePagerCubit() : super(UpdatePagerStateInitial());
  int pageSize = 0;
- int pageNumber = 1;
  ItemsEntity itemsEntity = const ItemsEntity();
 
   void initPager() {
@@ -23,6 +22,7 @@ class UpdatePagerCubit extends Cubit<UpdatePagerState> {
     final totalItems = itemsEntity.total;
     final totalPages = totalItems~/pageSize;
     final List<Color> borderColorList = List.filled(totalPages, Colors.grey);
+    borderColorList[0] = Colors.red;
     emit(UpdatePagerStateLoaded(totalPages,borderColorList));
   }
 

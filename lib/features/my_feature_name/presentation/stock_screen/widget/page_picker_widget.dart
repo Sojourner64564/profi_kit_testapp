@@ -43,14 +43,14 @@ class _PagePickerWidgetState extends State<PagePickerWidget> {
                       scrollDirection: Axis.horizontal,
                       controller: scrollController,
                       itemBuilder: (BuildContext context, int index) {
-                        final myIndex = index+1;
+                        final int myIndex = index+1;
                         return Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 5),
                           child: InkWell(
                             onTap: (){
                               updatePagerCubit.tapOnButtonPager(index);
                               updatePagerCubit.moveScrollPager(index,scrollController);
-                              fetchItemsCubit.fetchItemsWithDifPage(index+1);
+                              fetchItemsCubit.fetchItemsWithDifPage(myIndex);
                             },
                             splashColor: Colors.redAccent,
                             borderRadius: BorderRadius.circular(5),
