@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:profi_kit_testapp/core/colors/my_colors.dart';
+import 'package:profi_kit_testapp/core/text_style/my_text_style.dart';
 
 class NamesOfColumnsWidget extends StatelessWidget {
   const NamesOfColumnsWidget({super.key});
@@ -7,7 +9,7 @@ class NamesOfColumnsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 30,
-      color: Colors.grey,
+      color: MyColors.myAppLightGreyColor,
       child: ListView.builder(
         itemCount: 1,
         physics: const NeverScrollableScrollPhysics(),
@@ -21,18 +23,22 @@ class NamesOfColumnsWidget extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Stack(
                   children: [
-                    const Text('Название'),
+                    const Text('Название',
+                    style: MyTextStyle.myThinBlackMediumTextStyle,
+                    ),
                     SizedBox(
                       width: (MediaQuery.of(context).size.width - 280) / 3,
                       child: const Align(
                           alignment: Alignment.centerRight,
-                          child: Text('Единица измерения')),
+                          child: Text('Единица измерения',
+                            style: MyTextStyle.myThinBlackMediumTextStyle,),),
                     ),
                     SizedBox(
                       width: (MediaQuery.of(context).size.width - 280) / 1.5,
                       child: const Align(
                           alignment: Alignment.centerRight,
-                          child: Text('Артикул/код')),
+                          child: Text('Артикул/код',
+                            style: MyTextStyle.myThinBlackMediumTextStyle,)),
                     ),
                   ],
                 ),

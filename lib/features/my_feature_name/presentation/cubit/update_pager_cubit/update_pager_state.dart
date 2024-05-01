@@ -10,8 +10,9 @@ class UpdatePagerStateLoading extends UpdatePagerState {}
 class UpdatePagerStateLoaded extends UpdatePagerState {
   final int lenght;
   final List<Color> borderColor;
+  final List<Color> numberColor;
 
-  UpdatePagerStateLoaded(this.lenght, this.borderColor);
+  UpdatePagerStateLoaded(this.lenght, this.borderColor, this.numberColor);
 }
 
 class UpdatePagerStateEmpty extends UpdatePagerState {}

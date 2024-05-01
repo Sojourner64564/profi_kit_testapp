@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:profi_kit_testapp/core/colors/my_colors.dart';
+import 'package:profi_kit_testapp/core/text_style/my_text_style.dart';
 import 'package:profi_kit_testapp/features/my_feature_name/presentation/stock_screen/stock_page.dart';
 
 class StockScreen extends StatelessWidget {
@@ -8,13 +10,20 @@ class StockScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: MyColors.myAppLightGreyColor,
         leadingWidth: 150,
-        leading: const Row(
+        leading: Row(
           children: [
-            SizedBox(width: 5),
-            Icon(Icons.ac_unit),
-            SizedBox(width: 5),
-            Expanded(child: Text('PROFI KIT')),
+            const SizedBox(width: 5),
+            SizedBox(
+              width: 30,
+              height: 30,
+              child: Image.asset('assets/image/app_logo.png'),
+            ),
+            const SizedBox(width: 8),
+            const Expanded(child: Text('PROFI KIT',
+            style: MyTextStyle.myAppTitleTextStyle,
+            )),
           ],
         ),
         centerTitle: true,

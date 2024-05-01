@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:profi_kit_testapp/core/colors/my_colors.dart';
+import 'package:profi_kit_testapp/core/text_style/my_text_style.dart';
 
 class StockListTile extends StatelessWidget{
   const StockListTile({super.key, required this.title, required this.amount});
@@ -12,15 +14,16 @@ class StockListTile extends StatelessWidget{
 
       children: [
       Text(title),
-      //const Expanded(child: SizedBox()),
       Container(
         decoration: BoxDecoration(
-          color: Colors.redAccent,
+          color: MyColors.myAppRedColor,
           borderRadius: BorderRadius.circular(5),
         ),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
-          child: Text(amount),
+          child: Text(amount,
+          style: MyTextStyle.myThinWhiteMediumTextStyle,
+          ),
         ),
       ),
     ],);

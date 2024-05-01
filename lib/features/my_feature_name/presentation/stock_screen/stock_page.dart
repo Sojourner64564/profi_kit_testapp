@@ -28,6 +28,7 @@ class _StockPageState extends State<StockPage> {
   Widget build(BuildContext context) {
     //TODO ◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤ сделать с фиксированными размерами
     //TODO попробовать поработать с виджет Table
+    //TODO сделать побольше пейджер веб
     return Row(
       children: [
         const Padding(
@@ -96,8 +97,8 @@ class _StockPageState extends State<StockPage> {
             physics: const NeverScrollableScrollPhysics(),
             child: Column(
               children: [
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                 Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                   child: NameAndSearchBarWidget(),
                 ),
                 const SizedBox(height: 40),
@@ -112,7 +113,7 @@ class _StockPageState extends State<StockPage> {
                     child: BlocBuilder<FetchItemsCubit, FetchItemsState>(
                       bloc:fetchItemsCubit,
                       builder: (context, state) {
-                        if(state is FetchItemsStateInitial) return const Center(child: Text('Шnitial'));
+                        if(state is FetchItemsStateInitial) return const Center(child: Text('Initial'));
                         if(state is FetchItemsStateLoading) return const Center(child: Text('Loading'));
                         if(state is FetchItemsStateEmpty) return const Center(child: Text('Empty'));
                         if(state is FetchItemsStateError) return const Center(child: Text('Error'));
@@ -126,11 +127,10 @@ class _StockPageState extends State<StockPage> {
                   ),
                 ),
                 const SizedBox(height: 30),
-                Container(
-                  //color: Colors.brown,
+                const SizedBox(
                   height: 100,
                   width: double.infinity,
-                  child: const Align(
+                  child: Align(
                       alignment: Alignment.centerLeft,
                       child: PagePickerWidget()),
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:profi_kit_testapp/core/colors/my_colors.dart';
 
 class StockOrTransactionButton extends StatelessWidget{
   const StockOrTransactionButton({super.key});
@@ -9,7 +10,7 @@ class StockOrTransactionButton extends StatelessWidget{
       width: 280,
       height: 40,
       decoration: BoxDecoration(
-        color: Colors.redAccent,
+        color: MyColors.myAppLightGreyColor,
         borderRadius: BorderRadius.circular(5),
       ),
       child: Row(children: [
@@ -20,12 +21,12 @@ class StockOrTransactionButton extends StatelessWidget{
             width: 120,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
-              color: Colors.green,
+              color: Colors.white,
             ),
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.access_alarm_sharp),
+                Icon(Icons.home_outlined),
                 SizedBox(width: 5),
                 Text(
                   'Склады',
@@ -35,7 +36,9 @@ class StockOrTransactionButton extends StatelessWidget{
           ),
         ),
         const Spacer(),
-        const Icon(Icons.account_tree_sharp),
+        const Icon(Icons.sync_alt,
+        size: 20,
+        ),
         const Spacer(),
         Padding(
           padding: const EdgeInsets.all(3.0),
@@ -44,15 +47,13 @@ class StockOrTransactionButton extends StatelessWidget{
             width: 120,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
-              color: Colors.green,
+              color: Colors.white,
             ),
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.access_alarm_sharp),
-                SizedBox(width: 5),
                 Text(
-                  'Транpзакции',
+                  'Транзакции',
                 ),
               ],
             ),
