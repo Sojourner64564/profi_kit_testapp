@@ -28,7 +28,6 @@ class _StockPageState extends State<StockPage> {
   Widget build(BuildContext context) {
     //TODO ◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤ сделать с фиксированными размерами
     //TODO попробовать поработать с виджет Table
-    //TODO сделать побольше пейджер веб
     return Row(
       children: [
         const Padding(
