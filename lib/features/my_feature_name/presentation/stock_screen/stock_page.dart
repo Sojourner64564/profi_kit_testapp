@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:profi_kit_testapp/core/colors/my_colors.dart';
 import 'package:profi_kit_testapp/core/injectable/injectable.dart';
 import 'package:profi_kit_testapp/features/my_feature_name/presentation/cubit/fetch_items_cubit/fetch_items_cubit.dart';
 import 'package:profi_kit_testapp/features/my_feature_name/presentation/stock_screen/widget/list_tile_product_widget.dart';
@@ -30,65 +31,73 @@ class _StockPageState extends State<StockPage> {
     //TODO попробовать поработать с виджет Table
     return Row(
       children: [
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          child: SizedBox(
-            width: 280,
-            height: double.infinity,
-            child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              physics: NeverScrollableScrollPhysics(),
-              child: Column(
-                children: [
-                  SizedBox(height: 20),
-                  StockOrTransactionButton(),
-                  SizedBox(height: 15),
-                  StockListTile(
-                    title: 'Склад продукции',
-                    amount: '228',
-                  ),
-                  SizedBox(height: 20),
-                  StockListTile(
-                    title: 'Склад заготовок',
-                    amount: '228',
-                  ),
-                  SizedBox(height: 20),
-                  StockListTile(
-                    title: 'Хозяйственный склад',
-                    amount: '228',
-                  ),
-                  SizedBox(height: 20),
-                  StockListTile(
-                    title: 'Инструментальный склад',
-                    amount: '228',
-                  ),
-                  SizedBox(height: 20),
-                  StockListTile(
-                    title: 'Склад мерителей',
-                    amount: '228',
-                  ),
-                  SizedBox(height: 20),
-                  StockListTile(
-                    title: 'Склад ЗИП',
-                    amount: '228',
-                  ),
-                  SizedBox(height: 20),
-                  Divider(
-                    indent: 5,
-                    endIndent: 5,
-                    color: Colors.black26,
-                    thickness: 1,
-                  ),
-                  SizedBox(height: 20),
-                  StockListTile(
-                    title: 'Оборудование',
-                    amount: '228',
-                  ),
-                ],
+         Container(
+           decoration: const BoxDecoration(
+             border: Border(right: BorderSide(
+               width: 2,
+               color: MyColors.myLeftMenuBorderSideLightGrey,
+             ),),
+           ),
+           child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: SizedBox(
+              width: 278,
+              height: double.infinity,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                physics: NeverScrollableScrollPhysics(),
+                child: Column(
+                  children: [
+                    SizedBox(height: 20),
+                    StockOrTransactionButton(),
+                    SizedBox(height: 15),
+                    StockListTile(
+                      title: 'Склад продукции',
+                      amount: '228',
+                    ),
+                    SizedBox(height: 20),
+                    StockListTile(
+                      title: 'Склад заготовок',
+                      amount: '228',
+                    ),
+                    SizedBox(height: 20),
+                    StockListTile(
+                      title: 'Хозяйственный склад',
+                      amount: '228',
+                    ),
+                    SizedBox(height: 20),
+                    StockListTile(
+                      title: 'Инструментальный склад',
+                      amount: '228',
+                    ),
+                    SizedBox(height: 20),
+                    StockListTile(
+                      title: 'Склад мерителей',
+                      amount: '228',
+                    ),
+                    SizedBox(height: 20),
+                    StockListTile(
+                      title: 'Склад ЗИП',
+                      amount: '228',
+                    ),
+                    SizedBox(height: 20),
+                    Divider(
+                      indent: 5,
+                      endIndent: 5,
+                      color: MyColors.myBlack26Color,
+                      thickness: 1,
+                    ),
+                    SizedBox(height: 20),
+                    StockListTile(
+                      title: 'Оборудование',
+                      amount: '228',
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ),
+                   ),
+         ),
         SizedBox(
           height: double.infinity,
           width: MediaQuery.of(context).size.width-300,

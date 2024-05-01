@@ -7,6 +7,8 @@ class MyColors{
   static const myWhiteColor = Colors.white;
   static const myBlackColor = Colors.black;
   static const myGreyColor = Colors.grey;
+  static const myBlack26Color = Colors.black26;
+  static const myLeftMenuBorderSideLightGrey = Color.fromRGBO(87, 87, 87, 220);
   static const myTransparentColor = Colors.transparent;
 
 }
