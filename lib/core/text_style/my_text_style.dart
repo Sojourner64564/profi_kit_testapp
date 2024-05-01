@@ -18,4 +18,8 @@ class MyTextStyle{
     fontSize: 20,
     fontWeight: FontWeight.w800,
   );
+  static const myAppTabViewTextStyle = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: 17,
+  );
 }
