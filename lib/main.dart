@@ -1,8 +1,7 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:profi_kit_testapp/core/injectable/injectable.dart';
 import 'package:profi_kit_testapp/features/fdgdfg/my_cubit.dart';
-import 'package:profi_kit_testapp/features/my_feature_name/presentation/stock_screen/stock_screen.dart';
+import 'package:profi_kit_testapp/features/stock_items/presentation/stock_screen/stock_screen.dart';
 
 void main() {
   configureDependencies();

@@ -11,17 +11,17 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../../features/my_feature_name/data/data_source/items_data_source_remote.dart'
+import '../../features/stock_items/data/data_source/items_data_source_remote.dart'
     as _i3;
-import '../../features/my_feature_name/data/repository/fetch_items_repository_impl.dart'
+import '../../features/stock_items/data/repository/fetch_items_repository_impl.dart'
     as _i6;
-import '../../features/my_feature_name/domain/repository/fetch_items_repository.dart'
+import '../../features/stock_items/domain/repository/fetch_items_repository.dart'
     as _i5;
-import '../../features/my_feature_name/domain/usecase/fetch_items_use_case.dart'
+import '../../features/stock_items/domain/usecase/fetch_items_use_case.dart'
     as _i7;
-import '../../features/my_feature_name/presentation/cubit/fetch_items_cubit/fetch_items_cubit.dart'
+import '../../features/stock_items/presentation/cubit/fetch_items_cubit/fetch_items_cubit.dart'
     as _i8;
-import '../../features/my_feature_name/presentation/cubit/update_pager_cubit/update_pager_cubit.dart'
+import '../../features/stock_items/presentation/cubit/update_pager_cubit/update_pager_cubit.dart'
     as _i4;
 
 // initializes the registration of main-scope dependencies inside of GetIt

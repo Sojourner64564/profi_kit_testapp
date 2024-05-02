@@ -22,4 +22,16 @@ class MyTextStyle{
     fontWeight: FontWeight.w500,
     fontSize: 17,
   );
+  static const myAppDrawerBoldBigTextStyle = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontSize: 19,
+  );
+  static const myAppDrawerNamingBoldBigTextStyle = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontSize: 13,
+  );
+  static const myAppDrawerGreySmallTextStyle = TextStyle(
+    fontSize: 13,
+    color: MyColors.myGreyColor,
+  );
 }
