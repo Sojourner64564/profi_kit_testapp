@@ -18,34 +18,41 @@ class NameAndSearchBarWidget extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         child: Row(
           children: [
-            const Text('Номенкулатура',
+            const Text('Номенклатура',
             style: MyTextStyle.myBigBlackTextStyle,
             ),
             const SizedBox(width: 10),
-            BlocBuilder<FetchItemsCubit, FetchItemsState>(
-              bloc: fetchItemsCubit,
-              builder: (context, state) {
-                if (state is FetchItemsStateInitial) return const Center(child: Text('Initial'));
-                if (state is FetchItemsStateLoading) return const Center(child: Text('Loading'));
-                if (state is FetchItemsStateEmpty) return const Center(child: Text('Empty'));
-                if (state is FetchItemsStateError) return const Center(child: Text('Error'));
-                if (state is FetchItemsStateLoaded) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      color: MyColors.myAppRedColor,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
-                      child: Text('${state.entity.total.toString()} единиц/цы',
-                        style: MyTextStyle.myThinWhiteMediumTextStyle,
-                      ),
-                    ),
-                  );
-                }else{
-                  return const Center(child: Text('Unknown Exception'));
-                }
-              },
+            SizedBox(
+              width: 130,
+              child: Row(
+                children: [
+                  BlocBuilder<FetchItemsCubit, FetchItemsState>(
+                    bloc: fetchItemsCubit,
+                    builder: (context, state) {
+                      if (state is FetchItemsStateInitial) return const Center(child: Text('Initial'));
+                      if (state is FetchItemsStateLoading) return const Center(child: Text('Loading'));
+                      if (state is FetchItemsStateEmpty) return const Center(child: Text('Empty'));
+                      if (state is FetchItemsStateError) return const Center(child: Text('Error'));
+                      if (state is FetchItemsStateLoaded) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            color: MyColors.myAppRedColor,
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+                            child: Text('${state.entity.total.toString()} единиц/цы',
+                              style: MyTextStyle.myThinWhiteMediumTextStyle,
+                            ),
+                          ),
+                        );
+                      }else{
+                        return const Center(child: Text('Unknown Exception'));
+                      }
+                    },
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               width: (MediaQuery.of(context).size.width - 280) / 2.3,
