@@ -13,12 +13,12 @@ class FetchItemsCubit extends Cubit<FetchItemsState> {
   FetchItemsCubit(this.fetchItemsUseCase) : super(FetchItemsStateInitial());
   final FetchItemsUseCase fetchItemsUseCase;
   final updatePagerCubit = getIt<UpdatePagerCubit>();
-  int myPageSize = 10;
+  int myPageSize = 50;
 
   Future<void> initFetchItems() async {
     emit(FetchItemsStateLoading());
     final eitherFailureOrItemEntity = await fetchItemsUseCase.fetchItems(
-        'admin', 'admin', 1, 10);
+        'admin', 'admin', 1, 50);
     final itemsEntity = eitherFailureOrItemEntity.toOption().toNullable();
     if (itemsEntity == null){
       emit(FetchItemsStateError());
@@ -29,7 +29,7 @@ class FetchItemsCubit extends Cubit<FetchItemsState> {
       return;
     }
     updatePagerCubit.itemsEntity = itemsEntity;
-    updatePagerCubit.pageSize = 10;
+    updatePagerCubit.pageSize = 50;
     updatePagerCubit.initPager();
     emit(FetchItemsStateLoaded(itemsEntity));
   }

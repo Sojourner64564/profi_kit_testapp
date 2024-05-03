@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:profi_kit_testapp/core/injectable/injectable.dart';
-import 'package:profi_kit_testapp/features/fdgdfg/my_cubit.dart';
-import 'package:profi_kit_testapp/features/stock_items/presentation/stock_screen/stock_screen.dart';
+import 'package:profi_kit_testapp/features/main_tab_bar_scaffold/main_tab_bar_scaffold.dart';
 
 void main() {
   configureDependencies();
@@ -15,20 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: StockScreen(),
+      home: MainTabBarScaffold(),
     );
   }
 }
 
-class MainPage extends StatelessWidget {
-  MainPage({super.key});
-  final myCubit = MyCubit();
 
-  @override
-  Widget build(BuildContext context) {
-    myCubit.fuckingShit();
-    return Scaffold(
-      body: Container(color: Colors.green),
-    );
-  }
-}

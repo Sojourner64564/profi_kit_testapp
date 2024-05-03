@@ -14,7 +14,7 @@ class PagePickerWidget extends StatefulWidget {
 }
 
 class _PagePickerWidgetState extends State<PagePickerWidget> {
-  String dropDownValue = '10';
+  String dropDownValue = '50';
   final updatePagerCubit = getIt<UpdatePagerCubit>();
   final fetchItemsCubit = getIt<FetchItemsCubit>();
   final ScrollController scrollController = ScrollController();
@@ -88,17 +88,26 @@ class _PagePickerWidgetState extends State<PagePickerWidget> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5),
-              child: Container(
-                width: 35,
-                height: 35,
-                decoration: BoxDecoration(
+              child: Material(
+                child: InkWell(
+                  onTap: (){
+                    updatePagerCubit.moveScrollPagerToTheEnd(scrollController);
+                  },
                   borderRadius: BorderRadius.circular(5),
-                  border: Border.all(
-                    color: MyColors.myGreyColor,
-                    width: 2,
+                  splashColor: MyColors.myAppRedColor,
+                  child: Ink(
+                    width: 35,
+                    height: 35,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.all(
+                        color: MyColors.myGreyColor,
+                        width: 2,
+                      ),
+                    ),
+                    child: const Center(child: Icon(Icons.chevron_right)),
                   ),
                 ),
-                child: const Center(child: Icon(Icons.chevron_right)),
               ),
             ),
             SizedBox(width: (MediaQuery
@@ -124,14 +133,14 @@ class _PagePickerWidgetState extends State<PagePickerWidget> {
                   value: dropDownValue,
                   items: const [
                     DropdownMenuItem(
-                      value: '10',
-                      child: Text('10',
+                      value: '50',
+                      child: Text('50',
                       style: MyTextStyle.myThinWhiteMediumTextStyle,
                       ),
                     ),
                     DropdownMenuItem(
-                      value: '50',
-                      child: Text('50',
+                      value: '100',
+                      child: Text('100',
                         style: MyTextStyle.myThinWhiteMediumTextStyle,),
                     ),
                     DropdownMenuItem(

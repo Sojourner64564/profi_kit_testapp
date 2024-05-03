@@ -49,4 +49,7 @@ class UpdatePagerCubit extends Cubit<UpdatePagerState> {
     }
     scrollController.jumpTo((index-3)*40);
   }
+  void moveScrollPagerToTheEnd(ScrollController scrollController) {
+    scrollController.jumpTo(scrollController.position.maxScrollExtent);
+  }
 }

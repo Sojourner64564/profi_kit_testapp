@@ -7,11 +7,30 @@ part 'post_items_state.dart';
 
 @lazySingleton
 class PostItemsCubit extends Cubit<PostItemsState> {
-  PostItemsCubit(this.addItemsUseCase) : super(PostItemsInitial());
+  PostItemsCubit(this.addItemsUseCase) : super(PostItemsInitialState());
   final AddItemsUseCase addItemsUseCase;
 
-  Future<void> postItemsToInternet() async{
-    final fdf = await addItemsUseCase.addItems('admin', 'admin','name', 'description', 'measurementUnits', 'code');
-    print(fdf);
+  Future<void> postItemsToInternet(
+    TextEditingController nameTextEditingController,
+    TextEditingController measurementUnitsTextEditingController,
+    TextEditingController codeTextEditingController,
+    TextEditingController descriptionTextEditingController,
+  ) async {
+    if (nameTextEditingController.text.isEmpty) {
+//TODO-----------
+      return;
+    }
+    if (measurementUnitsTextEditingController.text.isEmpty) {
+      //TODO-----------
+      return;
+    }
+    final responseEitherEntityOrFailure = await addItemsUseCase.addItems(
+        'admin',
+        'admin',
+      nameTextEditingController.text,
+      descriptionTextEditingController.text,
+      measurementUnitsTextEditingController.text,
+      codeTextEditingController.text,
+    );
   }
 }
