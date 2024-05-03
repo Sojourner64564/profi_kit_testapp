@@ -76,7 +76,7 @@ class StockScreen extends StatelessWidget {
             ),
           ),
         ),
-        endDrawer: const AddItemsEndDrawer(),
+        endDrawer: AddItemsEndDrawer(),
         body: TabBarView(
           children: [
             const StockPage(),

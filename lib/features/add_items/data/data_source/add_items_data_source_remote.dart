@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:profi_kit_testapp/features/add_items/data/models/access_token_model.dart';
 import 'package:profi_kit_testapp/features/add_items/data/models/item_model.dart';
 import 'package:retrofit/http.dart';
 
@@ -10,16 +11,21 @@ abstract class AddItemsDataSourceRemote{
   factory AddItemsDataSourceRemote(Dio dio) = _AddItemsDataSourceRemote;
 
   @POST('/auth/login')
-  Future<ItemModel> fetchAddItemModel(
-      @Body() String body//g
+  Future<AccessTokenModel> fetchAccessToken(
+      @Body() String body
       );
 
-
+  @POST('/wh/items')
+  Future<ItemModel> fetchAddItemModel(
+      @Header('Authorization') String authorization,
+      @Body() String body,
+      );
+  //https://hcateringback-dev.unitbeandev.com/api/wh/items
 }
 
 
 @lazySingleton
-class ItemsClientDataSourceRemote{
+class AddItemsClientDataSourceRemote{
   AddItemsDataSourceRemote client(){
     return _AddItemsDataSourceRemote(Dio());
   }

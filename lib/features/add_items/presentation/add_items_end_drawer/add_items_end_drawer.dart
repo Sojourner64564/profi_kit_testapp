@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:profi_kit_testapp/core/colors/my_colors.dart';
+import 'package:profi_kit_testapp/core/injectable/injectable.dart';
 import 'package:profi_kit_testapp/core/text_style/my_text_style.dart';
 import 'package:profi_kit_testapp/features/add_items/presentation/add_items_end_drawer/decoration/input_decoration_for_drawer_text_field.dart';
+import 'package:profi_kit_testapp/features/add_items/presentation/cubit/post_items_cubit.dart';
 
 class AddItemsEndDrawer extends StatelessWidget{
-  const AddItemsEndDrawer({super.key});
+   AddItemsEndDrawer({super.key});
+final PostItemsCubit postItemsCubit = getIt<PostItemsCubit>();
 
   @override
   Widget build(BuildContext context) {
@@ -125,6 +128,7 @@ class AddItemsEndDrawer extends StatelessWidget{
                 Material(
                   child: InkWell(
                     onTap: (){
+                      postItemsCubit.postItemsToInternet();
                     },
                     borderRadius: BorderRadius.circular(5),
                     splashColor: MyColors.myAppLightRedColor,
